@@ -1,3 +1,5 @@
+package lucky7;
+
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -7,6 +9,7 @@ public class Dice {
     private int Number;
     private Graphics Pen;
     private Color DiceColor;
+    private Color dotColor;
     public Dice(Graphics Pen){
         /*
         this.Pen = Pen;
@@ -18,11 +21,16 @@ public class Dice {
         this.Pen = Pen;
         this.Number = Number;
         DiceColor = Color.white;
+        dotColor=Color.black;
     }
+    
+    public Dice(){}
     
     public int getNumber(){
         return Number;
     }
+    
+    
     public void Roll(){
         Number = (int)(Math.random() * 6 + 1);
     }
@@ -35,7 +43,11 @@ public class Dice {
     public void setColor(Color C){
         DiceColor = C;
     }
+    public void setDotColor(Color c) {
+    
+    }
     public void DrawDots(){
+        Pen.setColor(Color.black);
         if(Number == 1){
             Dot4();
         }
@@ -77,36 +89,29 @@ public class Dice {
     */
     
     private void Dot1(){
-        Pen.setColor(Color.black);
         Pen.fillOval(30,30,25,25);
         
     }
     private void Dot2(){
-        Pen.setColor(Color.black);
         Pen.fillOval(90,30,25,25);
         
     }
     private void Dot3(){
-        Pen.setColor(Color.black);
         Pen.fillOval(30,60,25,25);
         
     }
     private void Dot4(){
-        Pen.setColor(Color.black);
         Pen.fillOval(60,60,25,25);
         
     }
     private void Dot5(){
-        Pen.setColor(Color.black);
         Pen.fillOval(90,60,25,25);
         
     }
     private void Dot6(){
-        Pen.setColor(Color.black);
         Pen.fillOval(30,90,25,25); 
     }
     private void Dot7(){
-        Pen.setColor(Color.black);
         Pen.fillOval(90,90,25,25);
     }
 }

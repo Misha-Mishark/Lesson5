@@ -5,23 +5,34 @@ import java.util.Scanner;
 public class StudentInterFace {
 
     public static void main(String[] args) {
+        
         Student s1 = new Student();
         Student s2 = new Student();
         Scanner scan = new Scanner(System.in);
 
         String name;
         int score;
-        
+         while(true){
         //Input first Student's data
-        System.out.println("Enter name for first student (min 1 letter)");
+        System.out.println("Enter name for first student (min 1 letter)\n");
         name = scan.nextLine();
         s1.setName(name);
         for (int i = 1; i <= 3; i++) {
             System.out.format("Enter test score %d for %s> ", i, s1.getName());
             score = scan.nextInt();
             s1.setScore(i, score);
+          
         }
-        
+        String errormsg=s1.validateData(); 
+        if(errormsg==null) {
+              break;
+          }
+          else {
+              System.out.println(errormsg);
+              scan.nextLine();
+          }
+
+        }
         scan.nextLine();
         System.out.println("\n----------------------------\n");
 
@@ -40,8 +51,7 @@ public class StudentInterFace {
 
         System.out.println("\n----------------------------\n");
         
-        s1.validateData();
-        s2.validateData();
+       
 
         int s1_high = s1.getHighScore();
         int s2_high = s2.getHighScore();
@@ -67,7 +77,7 @@ public class StudentInterFace {
             System.out.format("Student's top marks were both %.2f", s2_avg);
         }
         
-    
+        
     }
     
 
